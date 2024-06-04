@@ -7,6 +7,11 @@ const nextConfig = {
             hostname: 'img.freepik.com',
             port: '',
           },
+          {
+            protocol: 'https',
+            hostname: 'www.google.com',
+            port: '',
+          },
         ],
       },
 };

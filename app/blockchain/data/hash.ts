@@ -1,0 +1,1 @@
+export const hash = "0x4794f52049c30f8BB223c8dA01F641887eF08483";

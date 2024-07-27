@@ -87,7 +87,7 @@ export default function Campaign(){
     }
    })
    useEffect(()=>{
-    window.reload;
+    console.log(stateChange);
    },[stateChange]);
 
     return(

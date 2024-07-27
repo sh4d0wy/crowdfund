@@ -1,6 +1,6 @@
 import { defaultWagmiConfig } from '@web3modal/wagmi/react/config'
 
-import { cookieStorage, createStorage } from 'wagmi'
+import { cookieStorage, createConfig, createStorage, http } from 'wagmi'
 import { mainnet, sepolia } from 'wagmi/chains'
 
 // Get projectId at https://cloud.walletconnect.com
@@ -17,12 +17,10 @@ const metadata = {
 
 // Create wagmiConfig
 const chains = [mainnet, sepolia] as const
-export const config = defaultWagmiConfig({
-  chains,
-  projectId,
-  metadata,
-  ssr: true,
-  storage: createStorage({
-    storage: cookieStorage
-  }),
+export const config = createConfig({
+  chains: [mainnet, sepolia],
+  transports: {
+    [mainnet.id]: http(),
+    [sepolia.id]: http(),
+  },
 })

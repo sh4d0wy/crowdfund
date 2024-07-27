@@ -8,7 +8,7 @@ import { Abi } from "viem"
 export type UseContractWriteType = Omit<UseWriteContractParameters,"config">
 export const useContractWrite = (functionName:string,options?:UseContractWriteType)=>{
     const {writeContractAsync,...rest} = useWriteContract({
-        config:config,
+        config,
         ...options
     })
     const write = async (args:Array<any>=[])=>{

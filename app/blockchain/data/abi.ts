@@ -3,90 +3,93 @@ export const abi =[
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_title",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_description",
+				"name": "_name",
 				"type": "string"
 			},
 			{
 				"internalType": "uint256",
-				"name": "_target",
+				"name": "_funds_target",
 				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_deadline",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_amountCollected",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "_image",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "_donator",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_donation",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "_owner",
-				"type": "address"
 			}
 		],
 		"name": "createCampaign",
-		"outputs": [
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "fundContract",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_index",
+				"type": "uint256"
+			}
+		],
+		"name": "withdrawFunds",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
+		"name": "allCamapaigns",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
 			{
 				"internalType": "address",
-				"name": "_address",
+				"name": "owner",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "_number",
+				"name": "funds_target",
 				"type": "uint256"
-			}
-		],
-		"name": "createUser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
+			},
 			{
 				"internalType": "uint256",
-				"name": "_id",
+				"name": "funds_deposited",
 				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "deadline",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "completed",
+				"type": "bool"
 			}
 		],
-		"name": "donateToCampagin",
-		"outputs": [],
-		"stateMutability": "payable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -96,23 +99,23 @@ export const abi =[
 			{
 				"components": [
 					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
 						"internalType": "address",
 						"name": "owner",
 						"type": "address"
 					},
 					{
-						"internalType": "string",
-						"name": "title",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "description",
-						"type": "string"
+						"internalType": "uint256",
+						"name": "funds_target",
+						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "target",
+						"name": "funds_deposited",
 						"type": "uint256"
 					},
 					{
@@ -121,28 +124,18 @@ export const abi =[
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint256",
-						"name": "amountCollected",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "image",
-						"type": "string"
+						"internalType": "bool",
+						"name": "completed",
+						"type": "bool"
 					},
 					{
 						"internalType": "address[]",
-						"name": "donators",
+						"name": "funders",
 						"type": "address[]"
-					},
-					{
-						"internalType": "uint256[]",
-						"name": "donations",
-						"type": "uint256[]"
 					}
 				],
-				"internalType": "struct Crowdfund.campaign[]",
-				"name": "",
+				"internalType": "struct Fundme.Campaign[]",
+				"name": "_allCamapaigns",
 				"type": "tuple[]"
 			}
 		],
@@ -150,14 +143,8 @@ export const abi =[
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			}
-		],
-		"name": "getDonations",
+		"inputs": [],
+		"name": "numOfCampaigns",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -172,16 +159,16 @@ export const abi =[
 		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "_id",
+				"name": "ethAmount",
 				"type": "uint256"
 			}
 		],
-		"name": "getDonators",
+		"name": "priceConverter",
 		"outputs": [
 			{
-				"internalType": "address[]",
+				"internalType": "uint256",
 				"name": "",
-				"type": "address[]"
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -189,7 +176,7 @@ export const abi =[
 	},
 	{
 		"inputs": [],
-		"name": "getTest",
+		"name": "time",
 		"outputs": [
 			{
 				"internalType": "uint256",

@@ -10,13 +10,13 @@ import { formatUnits, parseUnits } from "viem";
 import { useContractWrite } from "./blockchain/hooks/useContractWrite";
 import { useAccount } from "wagmi";
 import { useMemo } from "react";
+import { ToastContainer } from "react-toastify";
 export default function Home() {
   
   return (
     <>
       <div className="w-full h-full flex  items-center justify-center flex-col">
         <Navbar/>
-
         <div className="w-full h-full flex  items-center justify-center ">
         <Campaign/>
         

@@ -7,6 +7,11 @@ export const abi =[
 				"type": "string"
 			},
 			{
+				"internalType": "string",
+				"name": "_image",
+				"type": "string"
+			},
+			{
 				"internalType": "uint256",
 				"name": "_funds_target",
 				"type": "uint256"
@@ -36,6 +41,44 @@ export const abi =[
 		"type": "constructor"
 	},
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"name": "createCampaignEvent",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "success",
+				"type": "bool"
+			}
+		],
+		"name": "fundTransferEvent",
+		"type": "event"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -47,6 +90,31 @@ export const abi =[
 		"outputs": [],
 		"stateMutability": "payable",
 		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "index",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "sucess",
+				"type": "bool"
+			}
+		],
+		"name": "withdrawFundsEvent",
+		"type": "event"
 	},
 	{
 		"inputs": [
@@ -61,6 +129,11 @@ export const abi =[
 			{
 				"internalType": "string",
 				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "image",
 				"type": "string"
 			},
 			{
@@ -87,6 +160,11 @@ export const abi =[
 				"internalType": "bool",
 				"name": "completed",
 				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "withdrawalDone",
+				"type": "bool"
 			}
 		],
 		"stateMutability": "view",
@@ -101,6 +179,11 @@ export const abi =[
 					{
 						"internalType": "string",
 						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "image",
 						"type": "string"
 					},
 					{
@@ -132,6 +215,11 @@ export const abi =[
 						"internalType": "address[]",
 						"name": "funders",
 						"type": "address[]"
+					},
+					{
+						"internalType": "bool",
+						"name": "withdrawalDone",
+						"type": "bool"
 					}
 				],
 				"internalType": "struct Fundme.Campaign[]",

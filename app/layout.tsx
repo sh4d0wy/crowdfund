@@ -6,7 +6,9 @@ import { config } from "./blockchain/Config/config";
 import { headers } from "next/headers";
 import Web3ModalProvider from "./Components/Providers";
 import Sidebar from "./Components/Sidebar";
+import { ToastContainer } from "react-toastify";
 // import CampaignContextProvider from "./Context/CampaignContextProvider";
+import 'react-toastify/dist/ReactToastify.css';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,8 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}><Web3ModalProvider initialState={initialState}>
-        <div className="bg-[#14121B] h-full flex items-start gap-20 px-8 ">
+      <ToastContainer/>
+        <div className="bg-[#14121B] flex items-start gap-20 ">
         <Sidebar/>
+
        
         {children}
         
